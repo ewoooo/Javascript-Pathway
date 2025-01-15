@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.content {
+				width: 100%;
+				height: 600px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: 1px solid black;
+				margin-bottom: 10px;
+				color: black;
+				opacity: 0;
+				transition: opacity ease 1s;
+			}
+			.is-visible {
+				opacity: 100;
+				color: rebeccapurple;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<span>Content</span>
+		</div>
+		<div class="content">
+			<span>Content</span>
+		</div>
+		<div class="content">
+			<span>Content</span>
+		</div>
+		<div class="content">
+			<span>Content</span>
+		</div>
+		<div class="content">
+			<span>Content</span>
+		</div>
+		<div class="content">
+			<span>Content</span>
+		</div>
+		<script>
+			const animatedAssets = document.querySelectorAll(".content");
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("is-visible");
+						} else entry.target.classList.remove("is-visible");
+					});
+				},
+				{
+					root: null,
+					threshold: 0.6,
+				}
+			);
+
+			animatedAssets.forEach((asset) => observer.observe(asset));
+		</script>
+	</body>
+</html>

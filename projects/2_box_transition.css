@@ -1,0 +1,168 @@
+:where(html, body) {
+	min-height: 100dvh;
+}
+:where(html) {
+	text-size-adjust: none;
+}
+:where(body) {
+	margin: 0;
+	overflow-wrap: break-word;
+	text-size-adjust: none;
+}
+:where(:lang(ko)) {
+	word-break: keep-all;
+}
+:where(img) {
+	max-width: 100%;
+	height: auto;
+}
+:where([class]) {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: inherit;
+}
+:where([class])::before,
+:where([class])::after {
+	box-sizing: border-box;
+	pointer-events: none;
+}
+:where(ol[class], ul[class]) {
+	list-style: none;
+}
+:where(hr[class], button[class], fieldset[class], iframe[class], input[class], select[class], textarea[class]) {
+	border: 0;
+}
+:where(input[class], textarea[class]) {
+	border-radius: 0;
+}
+:where(button[class], input[class], mark[class], meter[class], progress[class]) {
+	background-color: transparent;
+}
+:where(table[class]) {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0;
+}
+:where(button[class], input[class], meter[class], progress[class], select[class], textarea[class]) {
+	appearance: none;
+}
+
+/* Start */
+body {
+	font-family: Geist;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	margin: 0 0 100px 0;
+}
+
+footer {
+	margin: 100px 0 0 0;
+}
+
+article {
+	padding: 20px;
+	margin-bottom: 200px;
+}
+
+.box-wrapper {
+	display: flex;
+	padding: 20px;
+	align-items: center;
+	justify-content: center;
+	height: 800px;
+	border: 1px solid black;
+}
+
+.box-wrapper--2 {
+	gap: 400px;
+}
+
+.box {
+	background-color: lightgray;
+	padding: 40px;
+	display: block;
+	width: 400px;
+	height: 300px;
+	animation: boxScale 2s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+}
+
+@keyframes boxScale {
+	0% {
+	}
+
+	100% {
+		width: 800px;
+		height: 600px;
+	}
+}
+
+.title {
+	font-size: 24px;
+}
+
+.box2--title {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+
+	transform: translate(-50%, -50%);
+}
+
+.box2_title__collect {
+	animation: box2TextScale 2s cubic-bezier(0.83, 0, 0.17, 1) alternate infinite;
+}
+
+.box2--title__reverse {
+	animation: box2TextScale2 2s cubic-bezier(0.83, 0, 0.17, 1) alternate infinite;
+}
+
+.box2 {
+	position: relative;
+	width: 400px;
+	height: 300px;
+	padding: 20px;
+	background-color: lightgray;
+	animation: box2Scale 2s cubic-bezier(0.83, 0, 0.17, 1) Infinite;
+}
+
+@keyframes box2Scale {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(2);
+	}
+}
+
+@keyframes box2TextScale {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(0.5);
+	}
+}
+
+@keyframes box2TextScale2 {
+	from {
+		transform: scale(0.5);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+.box--left {
+	animation-direction: alternate;
+	transform-origin: left center;
+}
+
+.box--right {
+	background-color: lightcoral;
+	animation-direction: alternate-reverse;
+	transform-origin: right center;
+}
