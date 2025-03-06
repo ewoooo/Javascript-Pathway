@@ -1,1 +1,17 @@
-console.log(global);
+import http from "http";
+
+const server = http.createServer((req, res) => {
+    if (req.url === "/") {
+        res.write("Hello World!");
+        res.end();
+    }
+
+    if (req.url === "/api/courses") {
+        res.write(JSON.stringify([1, 2, 3, 4]));
+        res.end();
+    }
+});
+
+server.listen(5501);
+
+console.log("Server running at http://localhost:5501/");
